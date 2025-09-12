@@ -2,7 +2,7 @@
 
 A comprehensive SaaS platform for churches and ministries to manage branded video channels, integrate live streams, and publish to Roku/TV apps with complete tenant isolation and enterprise-grade security.
 
-## 🎯 Project Status: **Architecture Transition to Node.js**
+## 🎯 Project Status: **Clean v2 Implementation**
 
 ✅ **Laravel Analysis & Documentation** - **COMPLETED**
 - Complete authentication system implemented and tested
@@ -11,13 +11,16 @@ A comprehensive SaaS platform for churches and ministries to manage branded vide
 - Security measures validated and documented
 - 80+ tests passing with comprehensive coverage
 
-🚧 **Architecture Migration** - **IN PROGRESS**
-- Migrating from Laravel/PHP to Node.js + TypeScript stack
-- Modern React frontend with Tailwind CSS
-- All Laravel work preserved for reference and data migration
-- Enhanced performance and developer experience target
+✅ **Project Structure Setup** - **COMPLETED**
+- Modern Node.js + TypeScript + React architecture ready
+- Clean separation between legacy reference and new implementation
+- Docker development environment configured
+- Full project structure established
 
-📋 **Next Phase: Node.js v2 Implementation**
+🚧 **Active Development: Node.js v2 Implementation**
+- No users exist - clean slate development approach
+- Reference Laravel for business logic understanding only
+- Focus on optimal modern architecture without migration constraints
 
 ## 🚀 Features
 
@@ -104,20 +107,24 @@ A comprehensive SaaS platform for churches and ministries to manage branded vide
 
 ## ⚡ Quick Start
 
-### New Node.js Architecture (v2)
-See **[README_V2.md](README_V2.md)** for complete setup instructions
-
+### Node.js v2 Development
 ```bash
 # Prerequisites
 node --version    # v18+ required
 npm --version     # v8+ required  
 docker --version  # For local database
 
-# Quick start
-git clone [repository-url]
-cd church-media-platform-v2
-docker compose up -d          # Start PostgreSQL + Redis
+# Development setup
+cd media-platform-v2
+npm run install:all           # Install all dependencies
+docker compose up -d          # Start PostgreSQL + Redis + Adminer
 npm run dev:all              # Start backend + frontend
+
+# Access applications
+http://localhost:3000         # React frontend
+http://localhost:3001         # Node.js API
+http://localhost:3001/docs    # API documentation
+http://localhost:8080         # Database browser (Adminer)
 ```
 
 ### Legacy Laravel Development (v1 - Reference Only)
@@ -184,19 +191,35 @@ php artisan test --coverage
 
 ## 🏗 Architecture
 
-### Database Design
-- **13 Core Tables** with complete tenant isolation
-- **UUID Primary Keys** across all tables
-- **Foreign Key Constraints** with cascade deletes
-- **Performance Indexes** on critical query paths
-- **JSON Columns** for flexible configuration storage
+### Project Structure
+```
+forworship/                              # Project workspace
+├── media-platform-v2/                  # ✨ Active Node.js v2 development
+│   ├── backend/                        # Node.js + TypeScript + Fastify + Prisma
+│   ├── frontend/                       # React + TypeScript + Tailwind CSS
+│   ├── docker-compose.yml              # PostgreSQL + Redis development services
+│   └── README.md                       # v2 development guide
+├── church-media-platform/              # 📚 Laravel reference (business logic)
+├── docs/                               # 📖 Architecture & planning documentation
+├── CLAUDE.md                           # 🤖 Development guidelines
+└── README.md                           # This file
+```
 
-### API Design
-- **RESTful Endpoints** with consistent response formats
-- **Bearer Token Authentication** with Laravel Sanctum
-- **Rate Limited** with configurable thresholds
-- **Scoped Permissions** (catalog:read, events:write, branding:read, live:read)
-- **Tenant-Aware** responses with automatic data scoping
+### Deployment Architecture
+```
+Server Structure:
+/public_html/          → forworship.org (main website)
+/media/                → media.forworship.org (platform)
+  ├── frontend/dist/   → React production build
+  └── backend/         → Node.js API (port 3001)
+```
+
+### Database Design (v2)
+- **Multi-tenant PostgreSQL** with Prisma ORM
+- **UUID Primary Keys** across all tables
+- **Automatic Tenant Scoping** via middleware
+- **Redis** for sessions and caching
+- **Type-Safe Database** with full TypeScript integration
 
 ## 🔄 Development Workflow
 
