@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php:*)",
+      "Bash(winget install:*)",
+      "Bash(choco install:*)",
+      "Bash(sed:*)",
+      "Bash(composer create-project:*)",
+      "Bash(composer install:*)",
+      "Bash(composer:*)",
+      "WebSearch",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(curl:*)",
+      "Bash(psql:*)",
+      "Bash(telnet:*)",
+      "Bash(mysql:*)",
+      "Read(//c/php/ext//**)",
+      "Read(//c/php/**)",
+      "Bash(find:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

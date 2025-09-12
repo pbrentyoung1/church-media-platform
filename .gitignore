@@ -1,0 +1,75 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Production builds
+dist/
+build/
+public/build/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database
+prisma/migrations/
+*.db
+*.sqlite
+
+# Laravel (Legacy Reference)
+church-media-platform/vendor/
+church-media-platform/node_modules/
+church-media-platform/.env
+church-media-platform/storage/
+church-media-platform/bootstrap/cache/
+church-media-platform/public/hot
+church-media-platform/public/storage
+church-media-platform/storage/*.key
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+*.lcov
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Testing
+test-results/
+playwright-report/
+playwright/.cache/
+storybook-static/
+
+# Temporary files
+*.tmp
+*.temp
