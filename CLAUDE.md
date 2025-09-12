@@ -29,7 +29,7 @@ A multi-tenant SaaS platform for churches and ministries to manage branded video
 ## Development Commands
 
 ### Main Development Workflow (v2 - Node.js)
-- `cd media-platform-v2` - Navigate to v2 implementation
+- Root directory is now the v2 implementation
 - `docker compose up -d` - Start PostgreSQL + Redis services
 - `npm run dev:all` - Start backend + frontend concurrently
 - `npm run test` - Run full test suite
@@ -92,14 +92,13 @@ A multi-tenant SaaS platform for churches and ministries to manage branded video
 
 ### Current Repository Structure
 ```
-forworship/                              # Project workspace
+forworship/                              # Project workspace & v2 implementation
+├── backend/                            # Node.js + TypeScript + Fastify + Prisma
+├── frontend/                           # React + TypeScript + Tailwind CSS
 ├── church-media-platform/              # Laravel reference (business logic only)
-├── media-platform-v2/                  # NEW: Clean Node.js implementation
-│   ├── backend/                        # Node.js + TypeScript + Fastify
-│   ├── frontend/                       # React + TypeScript + Tailwind
-│   ├── docker-compose.yml              # Local development services
-│   └── README.md                       # v2 development guide
 ├── docs/                               # Architecture documentation
+├── docker-compose.yml                  # Local development services (PostgreSQL + Redis)
+├── package.json                        # Workspace configuration
 ├── CLAUDE.md                           # This file  
 ├── README.md                           # Main project overview
 ├── README_V2.md                        # Node.js architecture overview
@@ -110,7 +109,7 @@ forworship/                              # Project workspace
 - **Main Site**: `forworship.org` → `/public_html/`
 - **Platform**: `media.forworship.org` → `/media/frontend/dist/`
 - **API**: Node.js backend runs on port 3001, proxied from platform
-- **Development**: Local development in `/forworship/media-platform-v2/`
+- **Development**: Local development in project root (`/forworship/`)
 - **Production**: Built and deployed to server `/media/` directory
 
 ### Required PHP Extensions (Production)
@@ -227,9 +226,9 @@ All Laravel structural analysis preserved in:
 
 ### 1. Initial Setup
 ```bash
-cd media-platform-v2
+# Root directory is now the v2 implementation
 npm run install:all          # Install all dependencies
-npm run docker:dev           # Start PostgreSQL + Redis
+docker compose up -d          # Start PostgreSQL + Redis + Adminer
 ```
 
 ### 2. Development Workflow
@@ -243,8 +242,8 @@ cd frontend && npm run dev    # React app on :3000
 ```
 
 ### 3. Key Development Files
-- **Backend**: `/media-platform-v2/backend/src/`
-- **Frontend**: `/media-platform-v2/frontend/src/`
+- **Backend**: `/backend/src/`
+- **Frontend**: `/frontend/src/`
 - **Database**: Prisma schema in `/backend/prisma/`
 - **Documentation**: API docs auto-generated at `http://localhost:3001/docs`
 

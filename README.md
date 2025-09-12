@@ -114,8 +114,7 @@ node --version    # v18+ required
 npm --version     # v8+ required  
 docker --version  # For local database
 
-# Development setup
-cd media-platform-v2
+# Development setup (root directory is v2 implementation)
 npm run install:all           # Install all dependencies
 docker compose up -d          # Start PostgreSQL + Redis + Adminer
 npm run dev:all              # Start backend + frontend
@@ -193,14 +192,13 @@ php artisan test --coverage
 
 ### Project Structure
 ```
-forworship/                              # Project workspace
-├── media-platform-v2/                  # ✨ Active Node.js v2 development
-│   ├── backend/                        # Node.js + TypeScript + Fastify + Prisma
-│   ├── frontend/                       # React + TypeScript + Tailwind CSS
-│   ├── docker-compose.yml              # PostgreSQL + Redis development services
-│   └── README.md                       # v2 development guide
+forworship/                              # Project workspace & v2 implementation
+├── backend/                            # ✨ Node.js + TypeScript + Fastify + Prisma
+├── frontend/                           # ✨ React + TypeScript + Tailwind CSS
 ├── church-media-platform/              # 📚 Laravel reference (business logic)
 ├── docs/                               # 📖 Architecture & planning documentation
+├── docker-compose.yml                  # PostgreSQL + Redis development services
+├── package.json                        # Workspace configuration
 ├── CLAUDE.md                           # 🤖 Development guidelines
 └── README.md                           # This file
 ```
