@@ -29,7 +29,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Validation**: Zod (runtime validation)
 - **API**: REST with OpenAPI/Swagger documentation
 - **Testing**: Vitest + Playwright + React Testing Library
-- **Media**: Vimeo + Resi integrations (ported from Laravel)
+- **Media**: Vimeo API + Resi integrations (ported from Laravel)
+- **Drag & Drop**: @dnd-kit library for hierarchical content management
 - **Roku**: Dynamic SceneGraph app generation and management per tenant
 
 ## Development Commands
@@ -270,10 +271,36 @@ cd frontend && npm run dev    # React app on :3000
 - **[docs/SECURITY.md](docs/SECURITY.md)** - Security implementation details
 - **[docs/TESTING.md](docs/TESTING.md)** - Test suite documentation
 
-## Development Priority
+## Development Priority & Strategy
+
+### **Frontend-First Development Approach**
 **CLEAN START APPROACH**: No users exist - fresh v2 implementation without migration concerns:
-1. Use Laravel code as business logic reference only
-2. Implement v2 architecture from scratch
-3. Skip backward compatibility - focus on optimal modern design
-4. Begin with DNS setup and project structure
-5. UI-first development with React + Tailwind CSS
+
+#### Phase 1: Frontend UI/UX (Current Focus)
+1. **Frontend Foundation**: React + TypeScript + Tailwind CSS setup
+2. **Drag & Drop System**: @dnd-kit implementation for hierarchical content management
+3. **Responsive Video Cards**: Mobile and desktop-friendly drag handles
+4. **Church Admin Dashboard**: Complete content management interface with mock data
+5. **Vimeo Integration UI**: Smart metadata extraction and auto-population interface
+
+#### Phase 2: Roku Channel Templates
+6. **SceneGraph Templates**: Build customizable Roku channel templates
+7. **Channel Preview**: Show how final Roku channel will appear
+8. **Template Customization**: Branding and content injection system
+
+#### Phase 3: Backend Implementation
+9. **API Development**: Node.js + Fastify backend to support frontend requirements
+10. **Database Schema**: PostgreSQL implementation based on frontend data models
+11. **Roku Generation**: Backend systems to create and deploy channels
+
+### **Key UI/UX Requirements**
+- **Cross-Platform Drag & Drop**: Desktop mouse + mobile touch support
+- **Hierarchical Content Management**: Categories, playlists, and video organization
+- **Smart Content Ingestion**: Auto-populate from Vimeo API metadata
+- **Responsive Design**: Seamless mobile and desktop experience
+- **Real-time Preview**: Visual feedback for Roku channel appearance
+
+### **Competitive Analysis & Inspiration**
+- **Zype.com**: API-first architecture, multi-platform distribution, faith industry focus
+- **inoRain.com**: White-label OTT platform, Electronic Program Guide, custom branding
+- **Key Learnings**: Dashboard-centric design, visual content organization, real-time preview
