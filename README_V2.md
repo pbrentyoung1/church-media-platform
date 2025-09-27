@@ -1,6 +1,6 @@
 # Church Media Platform v2 🚀
 
-> **Multi-tenant SaaS platform for churches** - Complete rebuild with modern Node.js architecture
+> **Multi-tenant SaaS platform that creates and manages custom Roku channels for churches** - Complete rebuild with modern React 19 + Node.js architecture
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://reactjs.org/)
@@ -11,16 +11,17 @@
 
 ## 🎯 Project Overview
 
-A complete architectural rebuild of the Church Media Platform, migrating from Laravel/PHP to a modern **Node.js + TypeScript + React** stack for better performance, developer experience, and long-term flexibility.
+A complete architectural rebuild of the Church Media Platform, migrating from Laravel/PHP to a modern **React 19 + Node.js + TypeScript** stack for better performance, developer experience, and long-term flexibility. The core product is a **custom Roku channel for each church**, built from templates and customized with their content and branding.
 
 ### Core Features
+- 📺 **Custom Roku Channel Generation** - Dynamic SceneGraph app creation per church tenant
 - 🏢 **Multi-tenant architecture** with complete data isolation
-- 🎥 **Video management** (Vimeo, Resi, direct uploads)
-- 📺 **Roku/TV app integration** with device linking
+- 🎥 **Video management** with HLS/DASH conversion pipeline
+- 🎵 **Drag & drop content management** with hierarchical organization (@dnd-kit)
 - 📊 **Analytics dashboard** with real-time metrics
-- 🎵 **Playlist management** with drag-and-drop ordering
 - 🔐 **Enterprise auth** (JWT + 2FA + role-based access)
 - 🎨 **Custom branding** per church/organization
+- 🎞️ **Live streaming** integration with Resi
 
 ---
 
@@ -28,11 +29,14 @@ A complete architectural rebuild of the Church Media Platform, migrating from La
 
 ### ✨ New Modern Stack (v2)
 ```typescript
-// Full-stack TypeScript application
+// Full-stack TypeScript application with frontend-first approach
 Backend:  Node.js + TypeScript + Fastify + Prisma ORM
-Frontend: React 18 + TypeScript + Vite + Tailwind CSS
+Frontend: React 19 + TypeScript + Vite
+UI:       Inspinia v4.5.0 (React 19 + Bootstrap 5.3+) + Tailwind CSS utilities
+DnD:      @dnd-kit (included in Inspinia) for hierarchical content management
+Forms:    React Hook Form + Zod validation (included in Inspinia)
 Database: PostgreSQL + Redis
-UI:       Shadcn/ui + Inspinia (Tailwind version)
+Media:    Sample videos → HLS/DASH conversion (FFmpeg/Video.dev/Transloadit/Cloudflare Stream)
 Testing:  Vitest + Playwright + React Testing Library
 ```
 
@@ -367,20 +371,26 @@ VITE_APP_ENV=production
 - [x] Documentation and migration strategy
 - [x] Subdomain strategy redesign
 
-### 🚧 Phase 2: Core Development (In Progress)
-- [ ] Project structure and tooling setup
-- [ ] React frontend with Tailwind CSS
+### 🚧 Phase 2: Frontend UI/UX (Current Focus)
+- [ ] Inspinia v4.5.0 React 19 project structure setup
+- [ ] @dnd-kit drag-and-drop hierarchical content management
+- [ ] Responsive video card components with sample data
+- [ ] Church admin dashboard with mock data
+- [ ] Video upload and metadata management interface
+
+### 📋 Phase 3: Roku Channel Templates (Upcoming)
+- [ ] SceneGraph template development
+- [ ] Channel customization and branding system
+- [ ] Channel preview interface
+- [ ] Template to HLS/DASH integration
+
+### 📋 Phase 4: Backend Implementation (Future)
 - [ ] Node.js backend with Fastify + Prisma
 - [ ] Authentication and multi-tenancy
+- [ ] Video processing pipeline integration
+- [ ] Roku channel generation and deployment
 
-### 📋 Phase 3: Feature Implementation (Upcoming)
-- [ ] Video management system
-- [ ] Playlist builder with drag-and-drop
-- [ ] Analytics dashboard
-- [ ] Roku app integration
-- [ ] Custom branding system
-
-### 🎯 Phase 4: Production & Scale (Future)
+### 🎯 Phase 5: Production & Scale (Future)
 - [ ] Performance optimization
 - [ ] Advanced analytics and reporting
 - [ ] Multi-region deployment

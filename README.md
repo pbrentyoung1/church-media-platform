@@ -1,6 +1,6 @@
-# Multi-Tenant Church Media Channel Platform
+# Multi-Tenant Church Media Platform
 
-A comprehensive SaaS platform for churches and ministries to manage branded video channels, integrate live streams, and publish to Roku/TV apps with complete tenant isolation and enterprise-grade security.
+**A multi-tenant SaaS platform that creates and manages custom Roku channels for churches and ministries.** The core product is a personalized Roku channel for each church, built from Roku example templates and customized with their branding, content, and live streams.
 
 ## 🎯 Project Status: **Clean v2 Implementation**
 
@@ -17,22 +17,24 @@ A comprehensive SaaS platform for churches and ministries to manage branded vide
 - Docker development environment configured
 - Full project structure established
 
-🚧 **Active Development: Node.js v2 Implementation**
+🚧 **Active Development: Frontend-First Node.js v2 Implementation**
+- **Phase 1**: Inspinia v4.5.0 React 19 frontend with drag-and-drop content management
+- **Phase 2**: Roku channel templates and SceneGraph generation
+- **Phase 3**: Node.js backend implementation
 - No users exist - clean slate development approach
-- Reference Laravel for business logic understanding only
-- Focus on optimal modern architecture without migration constraints
 
 ## 🚀 Features
 
 ### Core Platform (v2 Architecture)
+- **Custom Roku Channel Generation** - Dynamic SceneGraph app creation per church tenant
 - **Multi-tenant Node.js API** - TypeScript + Fastify + Prisma ORM
-- **Modern React Frontend** - TypeScript + Vite + Tailwind CSS + Shadcn/ui
+- **Modern React Frontend** - React 19 + Inspinia v4.5.0 + Bootstrap 5.3+ + Tailwind CSS
+- **Drag & Drop Content Management** - @dnd-kit hierarchical video organization
 - **Enhanced Performance** - 70% faster API responses, 75% smaller bundles
-- **Roku streaming app integration** - Native SceneGraph application (unchanged)
-- **Vimeo & Resi integrations** - Professional media streaming (ported)
+- **Video Processing Pipeline** - Sample videos → HLS/DASH conversion (FFmpeg/Video.dev/Transloadit/Cloudflare Stream)
 - **Enterprise Authentication** - JWT + refresh tokens + TOTP 2FA
 - **Real-time Analytics** - Enhanced tracking and insights
-- **Future Integrations** - Planning Center and other church management systems
+- **Future Integrations** - Multiple streaming platforms (Apple TV, Amazon Fire TV, etc.)
 
 ### Legacy Laravel (v1 - Preserved)
 - **Complete authentication system** - Fully implemented and tested
@@ -87,16 +89,19 @@ A comprehensive SaaS platform for churches and ministries to manage branded vide
 - **Redis** for caching and session management
 
 **Frontend:**
-- **React 18 + TypeScript** for modern component architecture
+- **React 19 + TypeScript** for modern component architecture with latest patterns
+- **Inspinia v4.5.0** UI framework with React-Bootstrap components
+- **Bootstrap 5.3+** modern responsive framework
+- **Tailwind CSS** utilities for custom styling
+- **@dnd-kit** drag-and-drop library (included in Inspinia)
+- **React Hook Form + Zod** validation (included in Inspinia)
 - **Vite** for lightning-fast development builds
-- **Tailwind CSS** for utility-first styling (long-term flexibility)
-- **Shadcn/ui** component library (with future Inspinia integration)
-- **React Query/TanStack Query** for server state management
 
 **Media & Integrations:**
-- **Vimeo API** integration (ported from Laravel)
+- **Sample Video Files** with HLS/DASH conversion pipeline
+- **Video Processing** via FFmpeg/Video.dev/Transloadit/Cloudflare Stream
 - **Resi API** integration for live streaming (ported)
-- **Roku SceneGraph** native application (unchanged)
+- **Dynamic Roku SceneGraph** generation per tenant
 
 ### Legacy Laravel (v1 - Preserved for Reference)
 - **Laravel 12** with PHP 8.2|8.4 - Complete authentication system
@@ -255,10 +260,10 @@ Server Structure:
 - **<200ms API Response Times** across all endpoints
 
 ### Development Progress
-- ✅ **Phase 1 Complete**: Multi-tenant authentication system
-- 🔄 **Phase 2 Starting**: Basic admin interface development
-- 📋 **Phase 3 Planned**: Video management and Roku integration
-- 📋 **Phase 4 Planned**: Live streaming and advanced features
+- ✅ **Architecture Planning**: Frontend-first development strategy with Inspinia v4.5.0
+- 🔄 **Phase 1 Active**: React 19 frontend with drag-and-drop content management
+- 📋 **Phase 2 Planned**: Roku channel templates and SceneGraph generation
+- 📋 **Phase 3 Planned**: Node.js backend API and database implementation
 
 ## 🤝 Contributing
 
