@@ -1,22 +1,24 @@
-# Church Media Platform v2 - Modern Node.js Architecture
+# Church Media Platform v2 - Modern React 19 + Node.js Architecture
 
 ## Project Overview
 
-A complete rebuild of the multi-tenant SaaS platform for churches and ministries to manage branded video channels, integrate live streams, and publish to Roku/TV apps. Moving from Laravel/PHP to a modern Node.js stack for better performance, developer experience, and long-term flexibility.
+**A multi-tenant SaaS platform that creates and manages custom Roku channels for churches and ministries.** The core product is a personalized Roku channel for each church, built from Roku example templates and customized with their branding, content, and live streams. Moving from Laravel/PHP to a modern React 19 + Node.js stack for better performance, developer experience, and long-term flexibility.
 
 ## Technology Stack Transformation
 
 ### New Modern Stack
 - **Backend**: Node.js + TypeScript + Fastify + Prisma ORM
 - **Database**: PostgreSQL + Redis (sessions, caching, queues)
-- **Frontend**: React 18 + TypeScript + Vite + Tailwind CSS
-- **UI Components**: Shadcn/ui + Inspinia (Tailwind version when released)
+- **Frontend**: React 19 + TypeScript + Vite
+- **UI Framework**: Inspinia v4.5.0 (React 19 + Bootstrap 5.3+) + Tailwind CSS utilities
+- **Drag & Drop**: @dnd-kit library (included in Inspinia) for hierarchical content management
+- **Forms**: React Hook Form + Zod validation (included in Inspinia)
 - **Auth**: JWT + Refresh Tokens + TOTP 2FA
-- **Validation**: Zod (runtime validation)
 - **API**: REST with OpenAPI/Swagger documentation
 - **Testing**: Vitest + Playwright + React Testing Library
-- **Roku App**: Existing SceneGraph app (unchanged)
-- **Media Integrations**: Vimeo + Resi (port existing logic)
+- **Roku Apps**: Dynamic SceneGraph generation per tenant
+- **Media Processing**: Sample videos → HLS/DASH conversion (FFmpeg/Video.dev/Transloadit/Cloudflare Stream)
+- **Live Streaming**: Resi integration (port existing logic)
 
 ### Benefits of New Stack
 - **Full Type Safety**: TypeScript across entire stack
@@ -26,40 +28,46 @@ A complete rebuild of the multi-tenant SaaS platform for churches and ministries
 - **Scalability**: Better horizontal scaling capabilities
 - **Long-term Flexibility**: Modern ecosystem, active development
 
-## Development Approach: UI-First
+## Development Approach: Frontend-First
 
-### Phase 1: UI/UX Design & Prototyping (Weeks 1-2)
-1. **Wireframe Key Workflows**
-   - Tenant dashboard with analytics
-   - Video management (upload, import from Vimeo/Resi)
-   - Playlist creation and management
-   - Live stream scheduling
-   - Device linking for TV apps
-   - User management and 2FA setup
+### Phase 1: Frontend UI/UX with Inspinia v4.5.0 (Current Focus)
+1. **Setup Inspinia v4.5.0 Foundation**
+   - React 19 + TypeScript + Bootstrap 5.3+ project structure
+   - Configure @dnd-kit for drag-and-drop content management
+   - Setup React Hook Form + Zod validation
+   - Integrate Tailwind CSS utilities for custom styling
 
-2. **Create React Components with Mock Data**
-   - Dashboard with sample metrics
-   - Video library with filtering/search
-   - Playlist builder with drag-and-drop
+2. **Create Core UI Components with Sample Data**
+   - Church admin dashboard with mock analytics
+   - Drag-and-drop video card components for hierarchical organization
+   - Video library with filtering/search (sample video files)
+   - Playlist builder with hierarchical content management
+   - Video upload interface with metadata extraction
    - Settings and branding customization
-   - Authentication flows
 
 3. **Validate User Experience**
-   - Test with actual church staff
-   - Refine workflows based on feedback
-   - Optimize for non-technical users
+   - Test drag-and-drop workflows on desktop and mobile
+   - Refine content organization patterns
+   - Optimize for non-technical church staff
 
-### Phase 2: API Design & Documentation (Week 3)
-1. **Define Data Models** (based on UI requirements)
-2. **Design REST API Contracts**
-3. **Create OpenAPI/Swagger documentation**
-4. **Plan authentication and authorization flows**
+### Phase 2: Roku Channel Templates (Upcoming)
+1. **SceneGraph Template Development**
+   - Build customizable Roku channel templates using examples
+   - Design template structure for church branding and content injection
+   - Create channel preview system to show final Roku appearance
+   - Implement template to HLS/DASH stream integration
 
-### Phase 3: Backend Implementation (Weeks 4-6)
+2. **Roku Channel Generation Pipeline**
+   - Template customization based on church branding
+   - Content feed generation from organized video hierarchy
+   - Channel package creation and deployment workflow
+
+### Phase 3: Backend Implementation (Future)
 1. **Set up Node.js + TypeScript + Fastify**
-2. **Implement Prisma schema and migrations**
-3. **Build API endpoints to match frontend needs**
-4. **Integrate external services (Vimeo, Resi)**
+2. **Implement Prisma schema and migrations based on frontend data models**
+3. **Build API endpoints to match frontend requirements**
+4. **Integrate video processing pipeline (FFmpeg/Video.dev/Transloadit/Cloudflare Stream)**
+5. **Implement Roku channel generation and deployment system**
 
 ## Core Architecture Principles
 
