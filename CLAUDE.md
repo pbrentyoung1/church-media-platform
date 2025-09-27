@@ -22,15 +22,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### New Architecture (v2 - ACTIVE DEVELOPMENT)
 - **Backend**: Node.js + TypeScript + Fastify + Prisma ORM
-- **Frontend**: React 18 + TypeScript + Vite + Tailwind CSS
-- **UI Components**: Shadcn/ui + Inspinia (Tailwind version)
+- **Frontend**: React 19 + TypeScript + Vite
+- **UI Framework**: Inspinia v4.5.0 (React 19 + Bootstrap 5.3+) + Tailwind CSS utilities
+- **Components**: React-Bootstrap components + custom video management components
 - **Database**: PostgreSQL + Redis (sessions, caching, queues)
 - **Auth**: JWT + Refresh Tokens + TOTP 2FA
-- **Validation**: Zod (runtime validation)
+- **Validation**: Zod (runtime validation - included in Inspinia)
 - **API**: REST with OpenAPI/Swagger documentation
 - **Testing**: Vitest + Playwright + React Testing Library
-- **Media**: Vimeo API + Resi integrations (ported from Laravel)
-- **Drag & Drop**: @dnd-kit library for hierarchical content management
+- **Media**: Sample video files → HLS/DASH conversion service (FFmpeg/Video.dev/Transloadit/Cloudflare Stream)
+- **Drag & Drop**: @dnd-kit library (included in Inspinia) for hierarchical content management
+- **Forms**: React Hook Form (included in Inspinia)
 - **Roku**: Dynamic SceneGraph app generation and management per tenant
 
 ## Development Commands
@@ -277,11 +279,11 @@ cd frontend && npm run dev    # React app on :3000
 **CLEAN START APPROACH**: No users exist - fresh v2 implementation without migration concerns:
 
 #### Phase 1: Frontend UI/UX (Current Focus)
-1. **Frontend Foundation**: React + TypeScript + Tailwind CSS setup
-2. **Drag & Drop System**: @dnd-kit implementation for hierarchical content management
-3. **Responsive Video Cards**: Mobile and desktop-friendly drag handles
+1. **Frontend Foundation**: Inspinia v4.5.0 React 19 + Bootstrap 5.3+ setup with Tailwind utilities
+2. **Drag & Drop System**: @dnd-kit (included in Inspinia) for hierarchical content management
+3. **Responsive Video Cards**: Mobile and desktop-friendly drag handles using React-Bootstrap components
 4. **Church Admin Dashboard**: Complete content management interface with mock data
-5. **Vimeo Integration UI**: Smart metadata extraction and auto-population interface
+5. **Video Upload UI**: Smart metadata extraction and file upload interface (sample videos → processing)
 
 #### Phase 2: Roku Channel Templates
 6. **SceneGraph Templates**: Build customizable Roku channel templates
@@ -294,11 +296,21 @@ cd frontend && npm run dev    # React app on :3000
 11. **Roku Generation**: Backend systems to create and deploy channels
 
 ### **Key UI/UX Requirements**
-- **Cross-Platform Drag & Drop**: Desktop mouse + mobile touch support
+- **Cross-Platform Drag & Drop**: Desktop mouse + mobile touch support (@dnd-kit from Inspinia)
 - **Hierarchical Content Management**: Categories, playlists, and video organization
-- **Smart Content Ingestion**: Auto-populate from Vimeo API metadata
-- **Responsive Design**: Seamless mobile and desktop experience
+- **Smart Content Ingestion**: Auto-populate metadata from uploaded video files
+- **Responsive Design**: Bootstrap 5.3+ responsive grid + Tailwind utilities
 - **Real-time Preview**: Visual feedback for Roku channel appearance
+- **Modern UI Components**: React-Bootstrap + custom video management components
+
+### **Inspinia v4.5.0 Integration Benefits**
+- **React 19 Ready**: Latest React version with modern patterns and performance
+- **Modern Bootstrap**: Bootstrap 5.3+ with React-Bootstrap components (no CSS conflicts)
+- **Drag & Drop Included**: @dnd-kit already configured for sortable lists and hierarchical management
+- **Form Handling**: React Hook Form + Zod validation pre-integrated
+- **Admin Components**: Pre-built dashboard layouts, cards, tables, and navigation
+- **TypeScript Support**: Full TypeScript configuration with modern tooling
+- **Rapid Development**: Skip component building, focus on church-specific features
 
 ### **Competitive Analysis & Inspiration**
 - **Zype.com**: API-first architecture, multi-platform distribution, faith industry focus
