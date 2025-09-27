@@ -197,15 +197,16 @@ php artisan test --coverage
 
 ### Project Structure
 ```
-forworship/                              # Project workspace & v2 implementation
-├── backend/                            # ✨ Node.js + TypeScript + Fastify + Prisma
-├── frontend/                           # ✨ React + TypeScript + Tailwind CSS
-├── church-media-platform/              # 📚 Laravel reference (business logic)
+forworship/                              # Clean v2 implementation workspace
+├── frontend/                           # ✨ React 19 + Inspinia v4.5.0 (to be created)
+├── backend/                            # ✨ Node.js + TypeScript + Fastify + Prisma (to be created)
 ├── docs/                               # 📖 Architecture & planning documentation
 ├── docker-compose.yml                  # PostgreSQL + Redis development services
 ├── package.json                        # Workspace configuration
 ├── CLAUDE.md                           # 🤖 Development guidelines
-└── README.md                           # This file
+├── README.md                           # This file
+├── README_V2.md                        # Node.js architecture overview
+└── CHURCH_MEDIA_PLATFORM_V2.md         # Complete v2 specification
 ```
 
 ### Deployment Architecture
