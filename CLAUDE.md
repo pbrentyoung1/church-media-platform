@@ -4,7 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A multi-tenant SaaS platform for churches and ministries to manage branded video channels, integrate live streams, and publish to Roku/TV apps. **MIGRATING FROM LARAVEL TO MODERN NODE.JS STACK** for better performance, developer experience, and long-term flexibility.
+**A multi-tenant SaaS platform that creates and manages custom Roku channels for churches and ministries.** The core product is a personalized Roku channel for each church, built from Roku example templates and customized with their branding, content, and live streams. **MIGRATING FROM LARAVEL TO MODERN NODE.JS STACK** for better performance, developer experience, and long-term flexibility.
+
+### Core Platform Goal
+- **Primary Output**: Custom Roku channels per church tenant
+- **Channel Management**: Create, deploy, and update Roku SceneGraph apps
+- **Content Integration**: Video catalogs, live streams, and church branding
+- **Future Expansion**: Additional streaming platforms (Apple TV, Amazon Fire TV, etc.)
 
 ## Technology Stack
 
@@ -24,7 +30,7 @@ A multi-tenant SaaS platform for churches and ministries to manage branded video
 - **API**: REST with OpenAPI/Swagger documentation
 - **Testing**: Vitest + Playwright + React Testing Library
 - **Media**: Vimeo + Resi integrations (ported from Laravel)
-- **Roku**: Existing SceneGraph app (unchanged)
+- **Roku**: Dynamic SceneGraph app generation and management per tenant
 
 ## Development Commands
 
@@ -67,6 +73,7 @@ A multi-tenant SaaS platform for churches and ministries to manage branded video
 
 ### Core Data Model
 - `tenants`, `users`, `videos`, `playlists`, `playlist_items`, `events`
+- `roku_channels`, `roku_deployments`, `channel_templates`
 - `video_metrics_daily`, `device_links`, `personal_access_tokens`
 
 ## API Endpoints
@@ -75,6 +82,8 @@ A multi-tenant SaaS platform for churches and ministries to manage branded video
 - `GET /api/v1/search?q=` - Search functionality
 - `POST /api/v1/events` - Event creation
 - `GET /api/v1/live` - Live stream data
+- `POST /api/v1/roku/deploy` - Deploy Roku channel
+- `GET /api/v1/roku/status` - Roku channel status
 
 ## Development Environment
 
@@ -145,6 +154,7 @@ When making changes that affect:
 - Playlist CRUD operations
 - Vimeo import functionality
 - Resi live stream visibility
+- Roku channel generation and deployment
 - Roku app performance (splash <2s, play <3s)
 
 ### Production Health Checks
