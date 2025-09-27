@@ -25,7 +25,12 @@
       "Bash(git remote add:*)",
       "Bash(git branch:*)",
       "Bash(git push:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:zype.com)",
+      "WebFetch(domain:inorain.com)",
+      "Read(//d/Documents/websites/INSPINIA_v4.5.0/React/**)",
+      "Read(//d/Documents/websites/INSPINIA_v4.5.0//**)"
     ],
     "deny": [],
     "ask": []
